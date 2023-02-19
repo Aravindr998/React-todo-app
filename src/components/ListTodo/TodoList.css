@@ -1,0 +1,23 @@
+.list-items{
+  display: flex;
+}
+
+.list-items p{
+  padding: 0 1rem;
+}
+.row{
+  display: flex;
+  justify-content: center;
+}
+.delete-button img{
+  width: 25px;
+}
+.delete-button{
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  margin-left: auto;
+}

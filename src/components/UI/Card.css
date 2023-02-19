@@ -1,0 +1,9 @@
+.card{
+  max-width: 50rem;
+  flex: 1;
+  box-shadow: 0.5px 0.5px 4px 0.5px rgb(133, 133, 133);
+  padding: 1rem;
+  border: none;
+  border-radius: 1rem;
+  margin: 1rem;
+}

@@ -1,0 +1,29 @@
+.row{
+  display: flex;
+  justify-content: center;
+}
+
+.todo-form{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.todo-input{
+  padding: 1rem;
+  border-radius: 0.5rem;
+  border: solid 1px #0047B7;
+  margin: 1rem;
+}
+
+.todo-input:focus{
+  outline: solid 1px #0055de;
+}
+
+.todo-label{
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+.invalid{
+  border: solid 2px #ff0000 !important;
+}
