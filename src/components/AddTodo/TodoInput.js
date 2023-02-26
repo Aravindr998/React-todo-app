@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import AddButton from '../UI/AddButton'
 import Card from '../UI/Card'
 import './TodoInput.css'
@@ -6,6 +6,10 @@ import './TodoInput.css'
 const TodoInput = props => {
   const taskInputRef = useRef()
   const [isValid, setIsValid] = useState(true)
+  useEffect(() => {
+    taskInputRef.current.focus()
+  }, [])
+  
   const formSubmitHandler = (e) => {
     e.preventDefault()
     if(taskInputRef.current.value.trim() === ''){

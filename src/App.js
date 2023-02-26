@@ -1,39 +1,15 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import TodoInput from './components/AddTodo/TodoInput'
 import './App.css';
 import TodoList from './components/ListTodo/TodoList';
 import CompletedList from './components/ListCompleted/CompletedList';
 
+const TODO_STORAGE_KEY = 'todoApp.todos'
+const COMP_STORAGE_KEY = 'todoApp.completed'
+
 function App() {
-  const todoItems = [
-    {
-      id: '1',
-      description: 'Dummy todo 1',
-      dateCreated: new Date(2020, 10, 1)
-    },
-    {
-      id: '2',
-      description: 'Dummy todo 2',
-      dateCreated: new Date(2020, 10, 2)
-    },
-    {
-      id: '3',
-      description: 'Dummy todo 3',
-      dateCreated: new Date(2023, 2, 10)
-    },
-    {
-      id: '4',
-      description: 'Dummy todo 4',
-      dateCreated: new Date(2020, 2, 16)
-    },
-  ]
-  const completedItems = [
-    {
-      id: '5',
-      description: 'Dummy todo 5',
-      dateCreated: new Date(2020, 2, 16)
-    }
-  ]
+  let todoItems = JSON.parse(localStorage.getItem(TODO_STORAGE_KEY)) || []
+  let completedItems = JSON.parse(localStorage.getItem(COMP_STORAGE_KEY)) || []
   const [task, setTask] = useState(todoItems)
   const [completed, setCompleted] = useState(completedItems)
   const saveTaskHandler = (newTask) => {
@@ -60,6 +36,14 @@ function App() {
       return prevState.filter(item => item.id != id)
     })
   }
+
+  useEffect(() => {
+    localStorage.setItem(TODO_STORAGE_KEY, JSON.stringify(task))
+  }, [task])
+
+  useEffect(() => {
+    localStorage.setItem(COMP_STORAGE_KEY, JSON.stringify(completed))
+  }, [completed])
 
   return (
     <div className='container' >
